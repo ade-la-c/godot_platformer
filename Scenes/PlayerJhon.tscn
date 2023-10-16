@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://m5ndmhhphcq5"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_gqand"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7sos0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjaj3"]
+size = Vector2(34, 77)
+
+[node name="Jhon" type="CharacterBody2D"]
+position = Vector2(84, 43)
+scale = Vector2(0.460186, 1.20451)
+script = ExtResource("1_gqand")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.917647, 0, 1)
+position = Vector2(16, 37.5)
+scale = Vector2(34, 77)
+texture = SubResource("CanvasTexture_7sos0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 37.5)
+shape = SubResource("RectangleShape2D_vjaj3")

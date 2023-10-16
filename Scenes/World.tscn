@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://drtdp3s2d5je6"]
+
+[ext_resource type="Script" path="res://Scripts/WorldController.cs" id="1_2axl7"]
+[ext_resource type="PackedScene" uid="uid://cuc42nimubawe" path="res://Scenes/Player.tscn" id="1_i3ohb"]
+[ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="2_o488q"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_s55hy"]
+size = Vector2(1000, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gn7l"]
+size = Vector2(1000, 50)
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("players")]
+script = ExtResource("1_2axl7")
+players = [NodePath("Players/Thomas"), NodePath("Players/Jhon"), NodePath("Players/Claire")]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Platform1" type="StaticBody2D" parent="Map"]
+position = Vector2(-449, 451)
+scale = Vector2(3, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform1"]
+position = Vector2(1, 1)
+mesh = SubResource("QuadMesh_s55hy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform1"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2gn7l")
+
+[node name="Platform2" type="StaticBody2D" parent="Map"]
+position = Vector2(82, 151)
+scale = Vector2(0.5, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform2"]
+position = Vector2(1, 1)
+mesh = SubResource("QuadMesh_s55hy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform2"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2gn7l")
+
+[node name="Platform3" type="StaticBody2D" parent="Map"]
+position = Vector2(-854, -19)
+scale = Vector2(0.5, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform3"]
+position = Vector2(1, 1)
+mesh = SubResource("QuadMesh_s55hy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform3"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2gn7l")
+
+[node name="Platform4" type="StaticBody2D" parent="Map"]
+position = Vector2(-944, -454)
+scale = Vector2(0.140001, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform4"]
+position = Vector2(1, 1)
+mesh = SubResource("QuadMesh_s55hy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform4"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2gn7l")
+
+[node name="Platform5" type="StaticBody2D" parent="Map"]
+position = Vector2(-1307, -136)
+scale = Vector2(0.0494841, 23.0716)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform5"]
+position = Vector2(1, 1)
+mesh = SubResource("QuadMesh_s55hy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform5"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2gn7l")
+
+[node name="Players" type="Node2D" parent="." node_paths=PackedStringArray("players")]
+script = ExtResource("2_o488q")
+players = [NodePath("Thomas"), NodePath("Jhon"), NodePath("Claire")]
+
+[node name="Thomas" parent="Players" node_paths=PackedStringArray("camera") instance=ExtResource("1_i3ohb")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-926, 389)
+scale = Vector2(0.75, 1.25)
+jumpVelocity = -900.0
+camera = NodePath("ThomasCamera")
+
+[node name="ThomasCamera" type="Camera2D" parent="Players/Thomas"]
+offset = Vector2(0, -200)
+anchor_mode = 0
+enabled = false
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+
+[node name="Jhon" parent="Players" node_paths=PackedStringArray("camera") instance=ExtResource("1_i3ohb")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-483, 405)
+scale = Vector2(0.4, 2)
+speed = 400.0
+jumpVelocity = -1100.0
+camera = NodePath("JhonCamera")
+
+[node name="JhonCamera" type="Camera2D" parent="Players/Jhon"]
+offset = Vector2(0, -200)
+enabled = false
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+
+[node name="Claire" parent="Players" node_paths=PackedStringArray("camera") instance=ExtResource("1_i3ohb")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(-32.0001, 405)
+scale = Vector2(1.75, 1.75)
+speed = 200.0
+jumpVelocity = -700.0
+camera = NodePath("ClaireCamera")
+
+[node name="ClaireCamera" type="Camera2D" parent="Players/Claire"]
+offset = Vector2(0, -200)
+enabled = false
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
