@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://drtdp3s2d5je6"]
+[gd_scene load_steps=7 format=3 uid="uid://drtdp3s2d5je6"]
 
 [ext_resource type="Script" path="res://Scripts/WorldController.cs" id="1_2axl7"]
 [ext_resource type="PackedScene" uid="uid://cuc42nimubawe" path="res://Scenes/Player.tscn" id="1_i3ohb"]
+[ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="2_blv7l"]
 [ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="2_o488q"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s55hy"]
@@ -11,70 +12,86 @@ size = Vector2(1000, 50)
 size = Vector2(1000, 50)
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("players")]
+position = Vector2(-4, 0)
 script = ExtResource("1_2axl7")
 players = [NodePath("Players/Thomas"), NodePath("Players/Jhon"), NodePath("Players/Claire")]
 
-[node name="Map" type="Node2D" parent="."]
+[node name="Maps" type="Node2D" parent="."]
 
-[node name="Platform1" type="StaticBody2D" parent="Map"]
+[node name="Map1" type="Node2D" parent="Maps"]
+
+[node name="Exits" type="Node2D" parent="Maps/Map1"]
+
+[node name="Platforms" type="Node2D" parent="Maps/Map1"]
+
+[node name="Platform" parent="Maps/Map1/Platforms" instance=ExtResource("2_blv7l")]
+scale = Vector2(4, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="Maps/Map1/Platforms"]
 position = Vector2(-449, 451)
 scale = Vector2(3, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform1"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Maps/Map1/Platforms/Platform1"]
 position = Vector2(1, 1)
 mesh = SubResource("QuadMesh_s55hy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maps/Map1/Platforms/Platform1"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2gn7l")
 
-[node name="Platform2" type="StaticBody2D" parent="Map"]
+[node name="Platform2" type="StaticBody2D" parent="Maps/Map1/Platforms"]
 position = Vector2(82, 151)
 scale = Vector2(0.5, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform2"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Maps/Map1/Platforms/Platform2"]
 position = Vector2(1, 1)
 mesh = SubResource("QuadMesh_s55hy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maps/Map1/Platforms/Platform2"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2gn7l")
 
-[node name="Platform3" type="StaticBody2D" parent="Map"]
-position = Vector2(-854, -19)
+[node name="Platform3" type="StaticBody2D" parent="Maps/Map1/Platforms"]
+position = Vector2(-730, -17)
 scale = Vector2(0.5, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform3"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Maps/Map1/Platforms/Platform3"]
 position = Vector2(1, 1)
 mesh = SubResource("QuadMesh_s55hy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maps/Map1/Platforms/Platform3"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2gn7l")
 
-[node name="Platform4" type="StaticBody2D" parent="Map"]
+[node name="Platform4" type="StaticBody2D" parent="Maps/Map1/Platforms"]
 position = Vector2(-944, -454)
 scale = Vector2(0.140001, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform4"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Maps/Map1/Platforms/Platform4"]
 position = Vector2(1, 1)
 mesh = SubResource("QuadMesh_s55hy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maps/Map1/Platforms/Platform4"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2gn7l")
 
-[node name="Platform5" type="StaticBody2D" parent="Map"]
+[node name="Platform5" type="StaticBody2D" parent="Maps/Map1/Platforms"]
 position = Vector2(-1307, -136)
 scale = Vector2(0.0494841, 23.0716)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Map/Platform5"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Maps/Map1/Platforms/Platform5"]
 position = Vector2(1, 1)
 mesh = SubResource("QuadMesh_s55hy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Platform5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maps/Map1/Platforms/Platform5"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2gn7l")
+
+[node name="Map2" type="Node2D" parent="Maps"]
+
+[node name="Exits" type="Node2D" parent="Maps/Map2"]
+
+[node name="Platforms" type="Node2D" parent="Maps/Map2"]
 
 [node name="Players" type="Node2D" parent="." node_paths=PackedStringArray("players")]
 script = ExtResource("2_o488q")
@@ -89,7 +106,6 @@ camera = NodePath("ThomasCamera")
 
 [node name="ThomasCamera" type="Camera2D" parent="Players/Thomas"]
 offset = Vector2(0, -200)
-anchor_mode = 0
 enabled = false
 zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
@@ -113,7 +129,7 @@ modulate = Color(0, 0, 1, 1)
 position = Vector2(-32.0001, 405)
 scale = Vector2(1.75, 1.75)
 speed = 200.0
-jumpVelocity = -700.0
+jumpVelocity = -750.0
 camera = NodePath("ClaireCamera")
 
 [node name="ClaireCamera" type="Camera2D" parent="Players/Claire"]
