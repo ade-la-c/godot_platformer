@@ -4,6 +4,7 @@ using System;
 public partial class LevelController : Node2D {
 
 	[Export] private PlayerController[] players;
+	public bool levelComplete = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {}
@@ -14,9 +15,9 @@ public partial class LevelController : Node2D {
 		if (Input.IsKeyPressed(Key.R)) {
 			ResetLevel();
 		}
-		if (Input.IsKeyPressed(Key.Escape)) {
-			GetTree().Quit();
-		}
+		// if (Input.IsKeyPressed(Key.Escape)) {
+		// 	GetTree().Quit();
+		// }	//todo		coming up with main menu
 
 	}
 
