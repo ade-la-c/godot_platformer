@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://be06w6xkm6oil"]
+
+[ext_resource type="Script" path="res://Scripts/WorldController.cs" id="1_cvo7h"]
+[ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="1_l2qn7"]
+[ext_resource type="PackedScene" uid="uid://cuc42nimubawe" path="res://Scenes/Player.tscn" id="2_17llu"]
+[ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="2_cdl2n"]
+
+[node name="Level01" type="Node2D" node_paths=PackedStringArray("players")]
+script = ExtResource("1_cvo7h")
+players = [NodePath("Players/Thomas"), NodePath("Players/Jhon"), NodePath("Players/Claire")]
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform1" parent="Platforms" instance=ExtResource("2_cdl2n")]
+position = Vector2(-425, 451)
+scale = Vector2(150, 3)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("2_cdl2n")]
+position = Vector2(61, 142)
+scale = Vector2(25, 3)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("2_cdl2n")]
+position = Vector2(-874, -280)
+scale = Vector2(25, 3)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("2_cdl2n")]
+position = Vector2(-856, -685)
+scale = Vector2(8, 3)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("2_cdl2n")]
+position = Vector2(-1311, -113)
+scale = Vector2(3, 55)
+
+[node name="Players" type="Node2D" parent="." node_paths=PackedStringArray("players")]
+script = ExtResource("1_l2qn7")
+players = [NodePath("Thomas"), NodePath("Jhon"), NodePath("Claire")]
+
+[node name="Thomas" parent="Players" node_paths=PackedStringArray("camera") instance=ExtResource("2_17llu")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-809, 392)
+scale = Vector2(0.75, 1.25)
+jumpVelocity = -900.0
+camera = NodePath("ThomasCamera")
+
+[node name="ThomasCamera" type="Camera2D" parent="Players/Thomas"]
+offset = Vector2(0, -200)
+enabled = false
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+
+[node name="Jhon" parent="Players" node_paths=PackedStringArray("camera") instance=ExtResource("2_17llu")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-655, 406)
+scale = Vector2(0.4, 2)
+speed = 400.0
+jumpVelocity = -1100.0
+camera = NodePath("JhonCamera")
+
+[node name="JhonCamera" type="Camera2D" parent="Players/Jhon"]
+offset = Vector2(0, -200)
+enabled = false
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+
+[node name="Claire" parent="Players" node_paths=PackedStringArray("camera") instance=ExtResource("2_17llu")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(-402, 394)
+scale = Vector2(1.75, 1.75)
+speed = 200.0
+jumpVelocity = -750.0
+camera = NodePath("ClaireCamera")
+
+[node name="ClaireCamera" type="Camera2D" parent="Players/Claire"]
+offset = Vector2(0, -200)
+enabled = false
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true

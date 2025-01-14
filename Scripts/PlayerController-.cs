@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+/*
 public partial class PlayerController_ : CharacterBody2D {
 
 	public bool isActive = false;
@@ -32,3 +33,4 @@ public partial class PlayerController_ : CharacterBody2D {
 
 	}
 }
+// */

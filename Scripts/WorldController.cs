@@ -14,6 +14,10 @@ public partial class WorldController : Node2D {
 		if (Input.IsKeyPressed(Key.R)) {
 			ResetLevel();
 		}
+		if (Input.IsKeyPressed(Key.Escape)) {
+			GetTree().Quit();
+		}
+
 	}
 
 	private void ResetLevel() {
