@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://drtdp3s2d5je6"]
+[gd_scene load_steps=5 format=3 uid="uid://coy02scmj7d2l"]
 
-[ext_resource type="Script" path="res://Scripts/WorldController.cs" id="1_2axl7"]
+[ext_resource type="Script" path="res://Scripts/LevelController.cs" id="1_dpaax"]
+[ext_resource type="Script" path="res://Scripts/LevelSwapper.cs" id="2_cyx4h"]
+[ext_resource type="PackedScene" uid="uid://ps4d2prtsiw8" path="res://Scenes/Levels/Level02.tscn" id="3_4n0q1"]
 [ext_resource type="PackedScene" uid="uid://be06w6xkm6oil" path="res://Scenes/Levels/Level01.tscn" id="3_q2l04"]
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("players")]
 position = Vector2(-4, 0)
-script = ExtResource("1_2axl7")
+script = ExtResource("1_dpaax")
 players = [null, null, null]
 
 [node name="Levels" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_cyx4h")
 
 [node name="Level01" parent="Levels" instance=ExtResource("3_q2l04")]
+script = null
+
+[node name="Level02" parent="Levels" instance=ExtResource("3_4n0q1")]

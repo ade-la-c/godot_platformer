@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class WorldController : Node2D {
+public partial class LevelController : Node2D {
 
 	[Export] private PlayerController[] players;
 
