@@ -15,9 +15,9 @@ public partial class LevelController : Node2D {
 		if (Input.IsKeyPressed(Key.R)) {
 			ResetLevel();
 		}
-		// if (Input.IsKeyPressed(Key.Escape)) {
-		// 	GetTree().Quit();
-		// }	//todo		coming up with main menu
+		if (Input.IsKeyPressed(Key.Escape)) {
+			GetTree().ChangeSceneToFile("res://Scenes/Menu.tscn");
+		}
 
 	}
 

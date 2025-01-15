@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ps4d2prtsiw8"]
+[gd_scene load_steps=6 format=3 uid="uid://ps4d2prtsiw8"]
 
 [ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="1_3admo"]
 [ext_resource type="Script" path="res://Scripts/LevelController.cs" id="1_73g1w"]
 [ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="2_dx1v0"]
 [ext_resource type="PackedScene" uid="uid://cuc42nimubawe" path="res://Scenes/Player.tscn" id="3_h6gvl"]
+[ext_resource type="Script" path="res://Scripts/ExitCheck.cs" id="5_vpbve"]
 
 [node name="Level02" type="Node2D" node_paths=PackedStringArray("players")]
 script = ExtResource("1_73g1w")
 players = [NodePath("Players/Thomas")]
-
-[node name="Exits" type="Node2D" parent="."]
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -23,7 +22,6 @@ players = [NodePath("Thomas")]
 
 [node name="Thomas" parent="Players" node_paths=PackedStringArray("camera") instance=ExtResource("3_h6gvl")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(180, 152)
 scale = Vector2(0.75, 1.25)
 jumpVelocity = -900.0
 camera = NodePath("ThomasCamera")
@@ -33,3 +31,6 @@ offset = Vector2(0, -200)
 enabled = false
 zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
+
+[node name="Exits" type="Node2D" parent="."]
+script = ExtResource("5_vpbve")
