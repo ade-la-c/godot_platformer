@@ -12,15 +12,15 @@ public partial class Menu : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
 
-		if (Input.IsKeyPressed(Key.Escape)) {
-			GetTree().Quit();
-		}
+		// if (Input.IsKeyPressed(Key.Escape)) {
+		// 	GetTree().Quit();
+		// }
 	}
 
 	//*signals
 	private void _on_start_button_pressed() {
 
-		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level02.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level01.tscn");
 	}
 	private void _on_levels_button_pressed() {
 

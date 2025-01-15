@@ -14,9 +14,9 @@ public partial class LevelSwapper : Node {
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
 
-			GD.Print("ee");//!debug
 		if (Input.IsKeyPressed(Key.G)) {
 			GetTree().ChangeSceneToFile("res://Scenes/Levels/Level02.tscn");
 		}
 	}
+
 }

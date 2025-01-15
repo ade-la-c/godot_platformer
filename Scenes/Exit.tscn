@@ -3,8 +3,10 @@
 [sub_resource type="QuadMesh" id="QuadMesh_rb3sc"]
 
 [node name="Node2D" type="Node2D"]
+z_index = -1
 
 [node name="Exit" type="MeshInstance2D" parent="."]
+modulate = Color(0.211765, 0.211765, 0.211765, 1)
 position = Vector2(0, -50)
 scale = Vector2(100, 100)
 mesh = SubResource("QuadMesh_rb3sc")

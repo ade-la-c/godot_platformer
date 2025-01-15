@@ -7,7 +7,12 @@ public partial class LevelController : Node2D {
 	public bool levelComplete = false;
 
 	// Called when the node enters the scene tree for the first time.
-	public override void _Ready() {}
+	public override void _Ready() {
+
+		foreach (PlayerController player in players) {
+			player.isOnExit = false;
+		}
+	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
@@ -19,6 +24,7 @@ public partial class LevelController : Node2D {
 			GetTree().ChangeSceneToFile("res://Scenes/Menu.tscn");
 		}
 
+		ExitCheck();
 	}
 
 	private void ResetLevel() {
@@ -26,5 +32,15 @@ public partial class LevelController : Node2D {
 		foreach (PlayerController player in players) {
 			player.ResetPosition();
 		}
+	}
+
+	private void ExitCheck() {
+
+		if (players.Length == 0) return;
+
+		foreach (PlayerController player in players) {
+			if (player.isOnExit == false) return;
+		}
+		GD.Print("level success !!!!!");
 	}
 }

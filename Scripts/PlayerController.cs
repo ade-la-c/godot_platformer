@@ -5,10 +5,13 @@ using System.Linq.Expressions;
 
 public partial class PlayerController : CharacterBody2D
 {
+
 	[Export] public float speed = 300.0f;
 	[Export] public float jumpVelocity = -400.0f;
 	public bool isActive = false;
 	[Export] public Camera2D camera;
+	[Export] public Node2D exit;
+	public bool isOnExit = false;
 	Vector2 initialPosition;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -23,9 +26,9 @@ public partial class PlayerController : CharacterBody2D
 
 		if (isActive) {
 			camera.MakeCurrent();
-		} else {
-			// camera. = false;
 		}
+
+		PlayerExits();
 	}
 
 	public override void _PhysicsProcess(double delta) {
@@ -60,5 +63,12 @@ public partial class PlayerController : CharacterBody2D
 	public void ResetPosition() {
 
 		Position = initialPosition;
+	}
+
+	public void PlayerExits() {
+
+		if (GlobalPosition.X <= exit.GlobalPosition.X + 20 && GlobalPosition.X >= exit.GlobalPosition.X - 20 && GlobalPosition.Y == GlobalPosition.Y) {
+			isOnExit = true;
+		} else { isOnExit = false; }
 	}
 }
