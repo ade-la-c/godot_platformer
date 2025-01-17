@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="2_cdl2n"]
 [ext_resource type="PackedScene" uid="uid://cc0p17g22bxjp" path="res://Scenes/Exit.tscn" id="5_i1ull"]
 
-[node name="Level01" type="Node2D" node_paths=PackedStringArray("players")]
+[node name="Level01" type="Node2D"]
 script = ExtResource("1_b21aw")
-players = [NodePath("Players/Thomas"), NodePath("Players/Jhon"), NodePath("Players/Claire")]
 
 [node name="Platforms" type="Node2D" parent="."]
 

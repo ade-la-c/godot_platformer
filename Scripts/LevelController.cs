@@ -3,11 +3,16 @@ using System;
 
 public partial class LevelController : Node2D {
 
-	[Export] private PlayerController[] players;
+	public PlayerController[] players;
 	public bool levelComplete = false;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
+
+		players = GetNode<PlayerSwapper>("Players").players;
+
+		GD.Print(players);
 
 		foreach (PlayerController player in players) {
 			player.isOnExit = false;

@@ -27,9 +27,8 @@ public partial class ExitCheck : Node2D
 }
 "
 
-[node name="Level02" type="Node2D" node_paths=PackedStringArray("players")]
+[node name="Level02" type="Node2D"]
 script = ExtResource("1_73g1w")
-players = [NodePath("Players/Thomas")]
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -39,7 +38,7 @@ scale = Vector2(30, 3)
 
 [node name="Players" type="Node2D" parent="." node_paths=PackedStringArray("players")]
 script = ExtResource("2_dx1v0")
-players = [NodePath("Thomas")]
+players = []
 
 [node name="Thomas" parent="Players" node_paths=PackedStringArray("camera", "exit") instance=ExtResource("3_h6gvl")]
 modulate = Color(1, 0, 0, 1)
