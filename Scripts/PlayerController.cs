@@ -3,8 +3,8 @@ using System;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
-public partial class PlayerController : CharacterBody2D
-{
+public partial class PlayerController : CharacterBody2D {
+
 
 	[Export] public float speed = 300.0f;
 	[Export] public float jumpVelocity = -400.0f;

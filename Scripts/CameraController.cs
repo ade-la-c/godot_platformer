@@ -13,7 +13,7 @@ public partial class CameraController : Camera2D {
 
 		if (isActive) {
 
-			GD.Print(Enabled);
+			// GD.Print(Enabled);
 		}
 	}
 }

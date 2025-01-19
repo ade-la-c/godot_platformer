@@ -11,7 +11,6 @@ public partial class PlayerSwapper : Node {
 	public override void _Ready() {
 
 		numberOfPlayers = players.Length;
-		GD.Print(numberOfPlayers);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

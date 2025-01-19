@@ -1,8 +1,8 @@
 using Godot;
 using System;
 
-public partial class Menu : Control
-{
+public partial class Menu : Control {
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		GetNode<Button>("VBoxContainer/StartButton").GrabFocus();

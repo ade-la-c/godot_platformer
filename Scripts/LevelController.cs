@@ -12,7 +12,7 @@ public partial class LevelController : Node2D {
 
 		players = GetNode<PlayerSwapper>("Players").players;
 
-		GD.Print(players);
+		// GD.Print(players);//!debug
 
 		foreach (PlayerController player in players) {
 			player.isOnExit = false;
