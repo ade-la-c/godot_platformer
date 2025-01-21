@@ -5,8 +5,8 @@ public partial class Menu : Control {
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
+
 		GetNode<Button>("VBoxContainer/StartButton").GrabFocus();
-		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,7 +20,7 @@ public partial class Menu : Control {
 	//*signals
 	private void _on_start_button_pressed() {
 
-		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level01.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level02.tscn");
 	}
 	private void _on_levels_button_pressed() {
 

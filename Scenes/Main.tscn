@@ -17,8 +17,10 @@ script = ExtResource("2_kw3oq")
 levels = [NodePath("Level01"), NodePath("Level02")]
 
 [node name="Level01" parent="Levels" instance=ExtResource("3_dmf68")]
+script = null
 
 [node name="Level02" parent="Levels" instance=ExtResource("4_4r312")]
+script = null
 
 [node name="UI" type="Node2D" parent="."]
 
