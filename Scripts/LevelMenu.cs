@@ -26,6 +26,6 @@ public partial class LevelMenu : Control {
 	//*signals
 	private void _on_back_button_pressed() {
 
-		GetTree().ChangeSceneToFile("res://Scenes/UI/Menu.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/UI/MainMenu.tscn");
 	}
 }

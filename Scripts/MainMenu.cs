@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Menu : Control {
+public partial class MainMenu : Control {
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -24,7 +24,7 @@ public partial class Menu : Control {
 	private void _on_levels_button_pressed() {
 		GetTree().ChangeSceneToFile("res://Scenes/UI/LevelMenu.tscn");
 	}
-	private void _on_quit_button_pressed() {
+	public void _on_quit_button_pressed() {
 		GetTree().Quit();
 	}
 }

@@ -1,15 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://3jx1sbjfq4fw"]
 
-[ext_resource type="Script" path="res://Scripts/Menu.cs" id="1_uub8v"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_j8rub"]
 
-[node name="Menu" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uub8v")
+script = ExtResource("1_j8rub")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
