@@ -19,11 +19,9 @@ public partial class Menu : Control {
 
 	//*signals
 	private void _on_start_button_pressed() {
-
-		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level02.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level01.tscn");
 	}
 	private void _on_levels_button_pressed() {
-
 		GetTree().ChangeSceneToFile("res://Scenes/UI/LevelMenu.tscn");
 	}
 	private void _on_quit_button_pressed() {

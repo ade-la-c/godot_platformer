@@ -42,7 +42,7 @@ players = [NodePath("Thomas")]
 
 [node name="Thomas" parent="Players" node_paths=PackedStringArray("camera", "exit") instance=ExtResource("3_h6gvl")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(364, 171)
+position = Vector2(250, 171)
 scale = Vector2(0.75, 1.25)
 jumpVelocity = -900.0
 camera = NodePath("ThomasCamera")
