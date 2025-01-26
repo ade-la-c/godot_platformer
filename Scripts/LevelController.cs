@@ -44,6 +44,9 @@ public partial class LevelController : Node2D {
 		foreach (PlayerController player in players) {
 			if (player.isOnExit == false) return;
 		}
-		GD.Print("level success !!!!!");
+		levelComplete = true;
+		GD.Print("level success !!!!!");//!TMP
+		//> go to EndLevelMenu
+		//> lock player movement
 	}
 }

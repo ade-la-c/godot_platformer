@@ -4,8 +4,8 @@ using System.Xml.Schema;
 
 public partial class LevelMenu : Control {
 
-	[Export] public LevelController[] levels;
-	private int currentLevelIndex;
+	[Export] PackedScene[] levels;
+	private int currentLevelIndex = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -21,7 +21,15 @@ public partial class LevelMenu : Control {
 	public void GenerateLevelButtons() {
 
 		// TODO generate buttons based on levels array
+
 	}
+
+	public void Next() {
+
+		currentLevelIndex += 1;
+		GetTree().ChangeSceneToPacked(levels[currentLevelIndex]);
+	}
+
 
 	//*signals
 	private void _on_back_button_pressed() {
