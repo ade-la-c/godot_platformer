@@ -3,7 +3,4 @@
 [ext_resource type="Script" path="res://Scripts/LevelButton.cs" id="1_pv2jm"]
 
 [node name="LevelButton" type="Button"]
-text = "level"
 script = ExtResource("1_pv2jm")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]

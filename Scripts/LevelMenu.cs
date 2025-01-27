@@ -5,16 +5,20 @@ using System.Xml.Schema;
 public partial class LevelMenu : Control {
 
 	[Export] PackedScene[] levels;
-	public VBoxContainer levelButtonContainer;
+	public LevelButtonContainer levelButtonContainer;
 	private int currentLevelIndex = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 
-		GenerateLevelButtons();
+		levelButtonContainer = GetNode<LevelButtonContainer>("VBoxContainer/LevelButtonContainer");
+
+		for (int i = 0; i < levels.Length; i++) {
+			levels[i].ResourceName = "LEVEL " + (i+1);
+			levelButtonContainer.GenerateLevelButton(levels[i]);
+		}
 
 		GetNode<Button>("VBoxContainer/BackButton").GrabFocus();
-		levelButtonContainer = GetNode<VBoxContainer>("VBoxContainer/LevelButtons");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://wfipnnriv08y"]
+[gd_scene load_steps=5 format=3 uid="uid://wfipnnriv08y"]
 
 [ext_resource type="Script" path="res://Scripts/LevelMenu.cs" id="1_0xofp"]
 [ext_resource type="PackedScene" uid="uid://ps4d2prtsiw8" path="res://Scenes/Levels/Level02.tscn" id="2_xvaoi"]
 [ext_resource type="PackedScene" uid="uid://be06w6xkm6oil" path="res://Scenes/Levels/Level01.tscn" id="3_2covc"]
+[ext_resource type="Script" path="res://Scripts/LevelButtonContainer.cs" id="4_t8208"]
 
 [node name="LevelMenu" type="Control"]
 layout_mode = 3
@@ -29,8 +30,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="LevelButtons" type="VBoxContainer" parent="VBoxContainer"]
+[node name="LevelButtonContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+script = ExtResource("4_t8208")
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
