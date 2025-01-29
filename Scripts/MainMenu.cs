@@ -19,6 +19,8 @@ public partial class MainMenu : Control {
 
 	//*signals
 	private void _on_start_button_pressed() {
+		// var scene = GD.Load<PackedScene>("res://Scenes/Levels/Level01.tscn");
+		// var inst = scene.Instantiate<PackedScene>();
 		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level01.tscn");
 	}
 	private void _on_levels_button_pressed() {

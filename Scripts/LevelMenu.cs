@@ -15,7 +15,7 @@ public partial class LevelMenu : Control {
 
 		for (int i = 0; i < levels.Length; i++) {
 			levels[i].ResourceName = "LEVEL " + (i+1);
-			levelButtonContainer.GenerateLevelButton(levels[i]);
+			levelButtonContainer.GenerateLevelButton(levels[i], i);
 		}
 
 		GetNode<Button>("VBoxContainer/BackButton").GrabFocus();
@@ -24,19 +24,7 @@ public partial class LevelMenu : Control {
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {}
 
-	public void GenerateLevelButtons() {
-
-		// TODO generate buttons based on levels array
-
-		for (int i = levels.Length; i > 0; i--) {
-			var scene = GD.Load<PackedScene>("res://Scenes/UI/LevelButton.tscn");
-			var inst = scene.Instantiate<Button>();
-			levelButtonContainer.AddChild(inst);
-			// AddChild(inst);
-		}
-	}
-
-	public void Next() {
+	public void Next(string name) {
 
 		currentLevelIndex += 1;
 		GetTree().ChangeSceneToPacked(levels[currentLevelIndex]);

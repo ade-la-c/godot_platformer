@@ -4,7 +4,7 @@ using System;
 public partial class PlayerSwapper : Node {
 
 	[Export] public PlayerController[] players;
-	int activePlayerIndex = 0;
+	public int activePlayerIndex = 0;
 	int numberOfPlayers = 0;
 
 	// Called when the node enters the scene tree for the first time.

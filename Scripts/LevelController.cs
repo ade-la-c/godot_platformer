@@ -4,11 +4,15 @@ using System;
 public partial class LevelController : Node2D {
 
 	public PlayerController[] players;
+	[Export] public PackedScene nextLevel;
+	public int levelIndex;
 	public bool levelComplete = false;
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
+
+		GD.Print("lvlindex ", levelIndex);//!debug
 
 		players = GetNode<PlayerSwapper>("Players").players;
 
@@ -27,7 +31,8 @@ public partial class LevelController : Node2D {
 			GetTree().ChangeSceneToFile("res://Scenes/UI/MainMenu.tscn");
 		}
 
-		ExitCheck();
+		if (levelComplete == false)
+			ExitCheck();
 	}
 
 	private void ResetLevel() {
@@ -47,6 +52,19 @@ public partial class LevelController : Node2D {
 		levelComplete = true;
 		GD.Print("level success !!!!!");//!TMP
 		//> go to EndLevelMenu
+
+		var endMenuScene = GD.Load<PackedScene>("res://scenes/UI/EndLevelMenu.tscn");
+		var inst = endMenuScene.Instantiate<EndLevelMenu>();
+		inst.levelPath = SceneFilePath;
+
+		if (nextLevel == null) {
+			inst.nextLevelPath = "res://Scenes/UI/MainMenu.tscn";
+		} else {
+			inst.nextLevelPath = nextLevel.ResourcePath;
+		}
+
+		AddChild(inst);
+
 		//> lock player movement
 	}
 }
