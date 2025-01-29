@@ -16,7 +16,6 @@ public partial class PlayerSwapper : Node {
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
 
-		if (Input.IsKeyPressed(Key.G)) { GD.Print("G"); }//!debug
 		SwapPlayer();
 	}
 

@@ -5,14 +5,11 @@ public partial class LevelController : Node2D {
 
 	public PlayerController[] players;
 	[Export] public PackedScene nextLevel;
-	public int levelIndex;
 	public bool levelComplete = false;
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-
-		GD.Print("lvlindex ", levelIndex);//!debug
 
 		players = GetNode<PlayerSwapper>("Players").players;
 
@@ -50,8 +47,6 @@ public partial class LevelController : Node2D {
 			if (player.isOnExit == false) return;
 		}
 		levelComplete = true;
-		GD.Print("level success !!!!!");//!TMP
-		//> go to EndLevelMenu
 
 		var endMenuScene = GD.Load<PackedScene>("res://scenes/UI/EndLevelMenu.tscn");
 		var inst = endMenuScene.Instantiate<EndLevelMenu>();
