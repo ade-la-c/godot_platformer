@@ -1,17 +1,21 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class LevelController : Node2D {
 
 	public PlayerController[] players;
 	[Export] public PackedScene nextLevel;
 	public bool levelComplete = false;
+	private EndLevelMenu inst;
+	private PlayerSwapper playerSwapper;
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 
-		players = GetNode<PlayerSwapper>("Players").players;
+		playerSwapper = GetNode<PlayerSwapper>("Players");
+		players = playerSwapper.players;
 
 		foreach (PlayerController player in players) {
 			player.isOnExit = false;
@@ -21,7 +25,9 @@ public partial class LevelController : Node2D {
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
 
-		if (Input.IsKeyPressed(Key.R)) {
+		// if (Input.IsKeyPressed(Key.R)) {
+		if (Input.IsActionJustPressed("Reset")) {
+			ResetLevel();
 			ResetLevel();
 		}
 		if (Input.IsKeyPressed(Key.Escape)) {
@@ -34,7 +40,11 @@ public partial class LevelController : Node2D {
 
 	private void ResetLevel() {
 
+		levelComplete = false;
+		if (inst != null)
+			RemoveChild(inst);
 		foreach (PlayerController player in players) {
+			player.stopMovement = false;
 			player.ResetPosition();
 		}
 	}
@@ -48,8 +58,8 @@ public partial class LevelController : Node2D {
 		}
 		levelComplete = true;
 
-		var endMenuScene = GD.Load<PackedScene>("res://scenes/UI/EndLevelMenu.tscn");
-		var inst = endMenuScene.Instantiate<EndLevelMenu>();
+		var endMenuScene = GD.Load<PackedScene>("res://Scenes/UI/EndLevelMenu.tscn");
+		inst = endMenuScene.Instantiate<EndLevelMenu>();
 		inst.levelPath = SceneFilePath;
 
 		if (nextLevel == null) {
@@ -60,6 +70,8 @@ public partial class LevelController : Node2D {
 
 		AddChild(inst);
 
-		//> lock player movement
+		foreach (PlayerController player in players) {
+			player.stopMovement = true;
+		}
 	}
 }

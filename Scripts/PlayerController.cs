@@ -9,10 +9,11 @@ public partial class PlayerController : CharacterBody2D {
 	[Export] public float speed = 300.0f;
 	[Export] public float jumpVelocity = -400.0f;
 	public bool isActive = false;
+	public bool stopMovement = false;
 	[Export] public Camera2D camera;
 	[Export] public Node2D exit;
 	public bool isOnExit = false;
-	Vector2 initialPosition;
+	private Vector2 initialPosition;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -33,31 +34,34 @@ public partial class PlayerController : CharacterBody2D {
 
 	public override void _PhysicsProcess(double delta) {
 
-		Vector2 velocity = Velocity;
+		if (!stopMovement) {
 
-		// Add the gravity.
-		if (!IsOnFloor())
-			velocity.Y += gravity * (float)delta;
+			Vector2 velocity = Velocity;
 
-		if (isActive) {
+			// Add the gravity.
+			if (!IsOnFloor())
+				velocity.Y += gravity * (float)delta;
 
-			// Handle Jump.
-			if (Input.IsActionJustPressed("jump") && IsOnFloor())
-				velocity.Y = jumpVelocity;
+			if (isActive) {
 
-			// Get the input direction and handle the movement/deceleration.
-			float direction = Input.GetAxis("move_left", "move_right");
-			if (direction != 0) {
+				// Handle Jump.
+				if (Input.IsActionJustPressed("jump") && IsOnFloor())
+					velocity.Y = jumpVelocity;
 
-				velocity.X = direction * speed;
-			} else {
+				// Get the input direction and handle the movement/deceleration.
+				float direction = Input.GetAxis("move_left", "move_right");
+				if (direction != 0) {
 
-				velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
+					velocity.X = direction * speed;
+				} else {
+
+					velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
+				}
+
 			}
-
+			Velocity = velocity;
+			MoveAndSlide();
 		}
-		Velocity = velocity;
-		MoveAndSlide();
 	}
 
 	public void ResetPosition() {
@@ -67,7 +71,8 @@ public partial class PlayerController : CharacterBody2D {
 
 	public void PlayerExits() {
 
-		if (GlobalPosition.X <= exit.GlobalPosition.X + 20 && GlobalPosition.X >= exit.GlobalPosition.X - 20 && GlobalPosition.Y == GlobalPosition.Y) {
+		if (GlobalPosition.X <= exit.GlobalPosition.X + 15 && GlobalPosition.X >= exit.GlobalPosition.X - 15
+		&& GlobalPosition.Y <= exit.GlobalPosition.Y + 15 && GlobalPosition.Y >= exit.GlobalPosition.Y - 15) {
 			isOnExit = true;
 		} else { isOnExit = false; }
 	}
