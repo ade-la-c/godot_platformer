@@ -26,16 +26,17 @@ public partial class LevelController : Node2D {
 	public override void _Process(double delta) {
 
 		// if (Input.IsKeyPressed(Key.R)) {
-		if (Input.IsActionJustPressed("Reset")) {
-			ResetLevel();
-			ResetLevel();
-		}
+
 		if (Input.IsKeyPressed(Key.Escape)) {
 			GetTree().ChangeSceneToFile("res://Scenes/UI/MainMenu.tscn");
 		}
 
 		if (levelComplete == false)
 			ExitCheck();
+
+		if (Input.IsActionJustPressed("Reset")) {
+			ResetLevel();
+		}
 	}
 
 	private void ResetLevel() {
