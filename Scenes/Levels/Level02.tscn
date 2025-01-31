@@ -1,62 +1,71 @@
-[gd_scene load_steps=7 format=3 uid="uid://ps4d2prtsiw8"]
+[gd_scene load_steps=7 format=3 uid="uid://b3a0vbsiijifl"]
 
 [ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="1_3admo"]
 [ext_resource type="Script" path="res://Scripts/LevelController.cs" id="1_73g1w"]
 [ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="2_dx1v0"]
+[ext_resource type="PackedScene" uid="uid://be06w6xkm6oil" path="res://Scenes/Levels/Level03.tscn" id="2_yfkt8"]
 [ext_resource type="PackedScene" uid="uid://cuc42nimubawe" path="res://Scenes/Player.tscn" id="3_h6gvl"]
 [ext_resource type="PackedScene" uid="uid://cc0p17g22bxjp" path="res://Scenes/Exit.tscn" id="5_kmct4"]
 
-[sub_resource type="CSharpScript" id="CSharpScript_qvi04"]
-script/source = "using Godot;
-using System;
-
-public partial class ExitCheck : Node2D
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready() {
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta) {
-	}
-
-	// signal
-	// public void _on_thomas_player_exit() {
-	// 	GD.Print(\"signal recieved\");//!debug
-	// }
-}
-"
-
 [node name="Level02" type="Node2D"]
 script = ExtResource("1_73g1w")
+nextLevel = ExtResource("2_yfkt8")
 
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("1_3admo")]
-position = Vector2(194, 202)
+position = Vector2(658, 916)
+scale = Vector2(30, 3)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("1_3admo")]
+position = Vector2(-200, 1082)
+scale = Vector2(30, 3)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("1_3admo")]
+position = Vector2(2106, 1520)
+scale = Vector2(30, 3)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("1_3admo")]
+position = Vector2(1340, 1216)
 scale = Vector2(30, 3)
 
 [node name="Players" type="Node2D" parent="." node_paths=PackedStringArray("players")]
 script = ExtResource("2_dx1v0")
-players = [NodePath("Thomas")]
+players = [NodePath("Thomas"), NodePath("Jhon")]
 
-[node name="Thomas" parent="Players" node_paths=PackedStringArray("camera", "exit") instance=ExtResource("3_h6gvl")]
+[node name="Thomas" parent="Players" node_paths=PackedStringArray("exit") instance=ExtResource("3_h6gvl")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(250, 171)
+position = Vector2(-326, 1011)
 scale = Vector2(0.75, 1.25)
 jumpVelocity = -900.0
-camera = NodePath("ThomasCamera")
 exit = NodePath("../../Exits/ThomasExit")
 
-[node name="ThomasCamera" type="Camera2D" parent="Players/Thomas"]
+[node name="Camera" type="Camera2D" parent="Players/Thomas"]
+offset = Vector2(0, -200)
+enabled = false
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+
+[node name="Jhon" parent="Players" node_paths=PackedStringArray("exit") instance=ExtResource("3_h6gvl")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(2001, 1459)
+scale = Vector2(0.4, 2)
+speed = 400.0
+jumpVelocity = -1100.0
+exit = NodePath("../../Exits/JhonExit")
+
+[node name="Camera" type="Camera2D" parent="Players/Jhon"]
 offset = Vector2(0, -200)
 enabled = false
 zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 
 [node name="Exits" type="Node2D" parent="."]
-script = SubResource("CSharpScript_qvi04")
 
 [node name="ThomasExit" parent="Exits" instance=ExtResource("5_kmct4")]
-position = Vector2(364, 171)
+position = Vector2(-160, 1051)
 scale = Vector2(0.75, 1.25)
+
+[node name="JhonExit" parent="Exits" instance=ExtResource("5_kmct4")]
+position = Vector2(2074, 1489)
+scale = Vector2(0.4, 2)

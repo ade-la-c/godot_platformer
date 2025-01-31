@@ -10,7 +10,7 @@ public partial class PlayerController : CharacterBody2D {
 	[Export] public float jumpVelocity = -400.0f;
 	public bool isActive = false;
 	public bool stopMovement = false;
-	[Export] public Camera2D camera;
+	public Camera2D camera;
 	[Export] public Node2D exit;
 	public bool isOnExit = false;
 	private Vector2 initialPosition;
@@ -21,6 +21,8 @@ public partial class PlayerController : CharacterBody2D {
 	public override void _Ready() {
 
 		initialPosition = Position;
+
+		camera = GetNode<Camera2D>("Camera");
 	}
 
 	public override void _Process(double delta) {
