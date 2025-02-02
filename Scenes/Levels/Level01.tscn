@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ps4d2prtsiw8"]
+[gd_scene load_steps=7 format=3 uid="uid://ps4d2prtsiw8"]
 
 [ext_resource type="Script" path="res://Scripts/LevelController.cs" id="1_b21aw"]
 [ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="1_l2qn7"]
@@ -6,27 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="2_cdl2n"]
 [ext_resource type="PackedScene" uid="uid://b3a0vbsiijifl" path="res://Scenes/Levels/Level02.tscn" id="2_revei"]
 [ext_resource type="PackedScene" uid="uid://cc0p17g22bxjp" path="res://Scenes/Exit.tscn" id="5_i1ull"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_qvi04"]
-script/source = "using Godot;
-using System;
-
-public partial class ExitCheck : Node2D
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready() {
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta) {
-	}
-
-	// signal
-	// public void _on_thomas_player_exit() {
-	// 	GD.Print(\"signal recieved\");//!debug
-	// }
-}
-"
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_b21aw")
@@ -56,7 +35,6 @@ zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 
 [node name="Exits" type="Node2D" parent="."]
-script = SubResource("CSharpScript_qvi04")
 
 [node name="ThomasExit" parent="Exits" instance=ExtResource("5_i1ull")]
 position = Vector2(364, 171)
