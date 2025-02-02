@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://be06w6xkm6oil"]
+[gd_scene load_steps=7 format=3 uid="uid://be06w6xkm6oil"]
 
 [ext_resource type="Script" path="res://Scripts/LevelController.cs" id="1_oaxfv"]
 [ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="1_s7l4j"]
+[ext_resource type="PackedScene" uid="uid://cvbiia2fqbmna" path="res://Scenes/UI/TheEnd.tscn" id="2_d2qp1"]
 [ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="2_m4j14"]
 [ext_resource type="PackedScene" uid="uid://cuc42nimubawe" path="res://Scenes/Player.tscn" id="3_42aiw"]
 [ext_resource type="PackedScene" uid="uid://cc0p17g22bxjp" path="res://Scenes/Exit.tscn" id="4_omnjx"]
 
 [node name="Level03" type="Node2D"]
 script = ExtResource("1_oaxfv")
+nextLevel = ExtResource("2_d2qp1")
 
 [node name="Platforms" type="Node2D" parent="."]
 
