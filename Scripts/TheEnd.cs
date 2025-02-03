@@ -11,7 +11,7 @@ public partial class TheEnd : Control {
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
 
-		if (Input.IsKeyPressed(Key.Escape) || Input.IsKeyPressed(Key.Enter)) {
+		if (Input.IsKeyPressed(Key.Escape) || Input.IsKeyPressed(Key.Enter) || Input.IsActionPressed("quit")) {
 			GetTree().ChangeSceneToFile("res://Scenes/UI/MainMenu.tscn");
 		}
 	}

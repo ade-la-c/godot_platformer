@@ -27,4 +27,13 @@ public partial class MainMenu : Control {
 	public void _on_quit_button_pressed() {
 		GetTree().Quit();
 	}
+
+	//* signals
+	private void _on_fullscreen_toggled(bool button_pressed) {
+		if (button_pressed == true) {
+			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
+		} else {
+			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
+		}
+	}
 }

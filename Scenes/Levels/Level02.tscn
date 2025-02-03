@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3a0vbsiijifl"]
+[gd_scene load_steps=8 format=3 uid="uid://b3a0vbsiijifl"]
 
 [ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="1_3admo"]
 [ext_resource type="Script" path="res://Scripts/LevelController.cs" id="1_73g1w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://be06w6xkm6oil" path="res://Scenes/Levels/Level03.tscn" id="2_yfkt8"]
 [ext_resource type="PackedScene" uid="uid://cuc42nimubawe" path="res://Scenes/Player.tscn" id="3_h6gvl"]
 [ext_resource type="PackedScene" uid="uid://cc0p17g22bxjp" path="res://Scenes/Exit.tscn" id="5_kmct4"]
+[ext_resource type="PackedScene" uid="uid://dnbkk0mf2t8bi" path="res://Scenes/UI/ControlsOverlay.tscn" id="7_lijqo"]
 
 [node name="Level02" type="Node2D"]
 script = ExtResource("1_73g1w")
@@ -69,3 +70,7 @@ scale = Vector2(0.75, 1.25)
 [node name="JhonExit" parent="Exits" instance=ExtResource("5_kmct4")]
 position = Vector2(2074, 1489)
 scale = Vector2(0.4, 2)
+
+[node name="ControlsOverlay" parent="." instance=ExtResource("7_lijqo")]
+
+[connection signal="SwapPlayer" from="ControlsOverlay" to="Players" method="_on_controls_overlay_swap_player"]

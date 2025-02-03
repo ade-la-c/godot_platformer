@@ -14,7 +14,7 @@ public partial class LevelMenu : Control {
 
 		for (int i = 0; i < levels.Length; i++) {
 			levels[i].ResourceName = "LEVEL " + (i+1);
-			levelButtonContainer.GenerateLevelButton(levels[i], i);
+			levelButtonContainer.GenerateLevelButton(levels[i]);
 		}
 
 		GetNode<Button>("VBoxContainer/BackButton").GrabFocus();

@@ -37,6 +37,13 @@ text = "LEVELS"
 layout_mode = 2
 text = "QUIT"
 
+[node name="Fullscreen" type="CheckButton" parent="."]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 24.0
+text = "FULLSCREEN"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LevelsButton" to="." method="_on_levels_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="Fullscreen" to="." method="_on_fullscreen_toggled"]

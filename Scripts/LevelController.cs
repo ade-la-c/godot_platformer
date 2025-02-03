@@ -9,7 +9,7 @@ public partial class LevelController : Node2D {
 	public bool levelComplete = false;
 	private EndLevelMenu inst;
 	private PlayerSwapper playerSwapper;
-
+	public ControlsOverlay controlsOverlay;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {

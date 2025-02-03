@@ -9,7 +9,7 @@ public partial class LevelButtonContainer : VBoxContainer {
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {}
 
-	public void GenerateLevelButton(PackedScene level, int index) {
+	public void GenerateLevelButton(PackedScene level) {
 
 		var scene = GD.Load<PackedScene>("res://Scenes/UI/LevelButton.tscn");
 		var inst = scene.Instantiate<LevelButton>();

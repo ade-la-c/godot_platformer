@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://dnbkk0mf2t8bi"]
+[gd_scene load_steps=3 format=3 uid="uid://dnbkk0mf2t8bi"]
+
+[ext_resource type="Script" path="res://Scripts/ControlsOverlay.cs" id="1_ynvqg"]
+[ext_resource type="Texture2D" uid="uid://ctb2x8tiajriv" path="res://Images/icon.svg" id="2_t3hmm"]
 
 [node name="ControlsOverlay" type="CanvasLayer"]
+script = ExtResource("1_ynvqg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PlayerSwapperContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 132.0
+offset_bottom = 57.0
+
+[node name="SwapButton" type="Button" parent="Control/PlayerSwapperContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SWAP PLAYER"
+
+[node name="MoveLeft" type="TouchScreenButton" parent="Control"]
+position = Vector2(7, 510)
+texture_normal = ExtResource("2_t3hmm")
+action = "move_left"
+visibility_mode = 1
+
+[node name="MoveRight" type="TouchScreenButton" parent="Control"]
+position = Vector2(138, 510)
+texture_normal = ExtResource("2_t3hmm")
+action = "move_right"
+visibility_mode = 1
+
+[connection signal="pressed" from="Control/PlayerSwapperContainer/SwapButton" to="." method="_on_swap_button_pressed"]

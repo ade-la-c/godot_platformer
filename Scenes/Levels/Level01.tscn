@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ps4d2prtsiw8"]
+[gd_scene load_steps=8 format=3 uid="uid://ps4d2prtsiw8"]
 
 [ext_resource type="Script" path="res://Scripts/LevelController.cs" id="1_b21aw"]
 [ext_resource type="Script" path="res://Scripts/PlayerSwapper.cs" id="1_l2qn7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://chqth6iq182cv" path="res://Scenes/Platform.tscn" id="2_cdl2n"]
 [ext_resource type="PackedScene" uid="uid://b3a0vbsiijifl" path="res://Scenes/Levels/Level02.tscn" id="2_revei"]
 [ext_resource type="PackedScene" uid="uid://cc0p17g22bxjp" path="res://Scenes/Exit.tscn" id="5_i1ull"]
+[ext_resource type="PackedScene" uid="uid://dnbkk0mf2t8bi" path="res://Scenes/UI/ControlsOverlay.tscn" id="7_bxjk1"]
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_b21aw")
@@ -39,3 +40,7 @@ position_smoothing_enabled = true
 [node name="ThomasExit" parent="Exits" instance=ExtResource("5_i1ull")]
 position = Vector2(364, 171)
 scale = Vector2(0.75, 1.25)
+
+[node name="ControlsOverlay" parent="." instance=ExtResource("7_bxjk1")]
+
+[connection signal="SwapPlayer" from="ControlsOverlay" to="Players" method="_on_controls_overlay_swap_player"]

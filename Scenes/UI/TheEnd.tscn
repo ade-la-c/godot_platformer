@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvbiia2fqbmna"]
+[gd_scene load_steps=3 format=3 uid="uid://cvbiia2fqbmna"]
 
 [ext_resource type="Script" path="res://Scripts/TheEnd.cs" id="1_wo7bc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ljxm7"]
+size = Vector2(1150, 642)
 
 [node name="TheEnd" type="Control"]
 layout_mode = 3
@@ -49,3 +52,8 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "THAT'S ALL FOLKS"
 horizontal_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+texture_normal = SubResource("PlaceholderTexture2D_ljxm7")
+action = "quit"
