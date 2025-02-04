@@ -17,8 +17,16 @@ public partial class LevelController : Node2D {
 		playerSwapper = GetNode<PlayerSwapper>("Players");
 		players = playerSwapper.players;
 
+		controlsOverlay = GetNode<ControlsOverlay>("ControlsOverlay");
+
 		foreach (PlayerController player in players) {
 			player.isOnExit = false;
+		}
+
+		if (players.Length > 1) {
+			controlsOverlay.swapper = true;
+		} else {
+			controlsOverlay.swapper = false;
 		}
 	}
 

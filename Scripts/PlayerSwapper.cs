@@ -12,7 +12,7 @@ public partial class PlayerSwapper : Node {
 
 		numberOfPlayers = players.Length;
 		players[0].isActive = true;
-		players[activePlayerIndex].camera.Enabled = true;
+		players[0].camera.Enabled = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

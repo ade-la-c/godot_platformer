@@ -7,6 +7,9 @@ public partial class MainMenu : Control {
 	public override void _Ready() {
 
 		GetNode<Button>("VBoxContainer/StartButton").GrabFocus();
+		if (DisplayServer.WindowGetMode() == DisplayServer.WindowMode.Fullscreen) {
+			GetNode<CheckButton>("Fullscreen").ButtonPressed = true;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -24,6 +24,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "SWAP PLAYER"
 
+[node name="Label" type="Label" parent="Control/PlayerSwapperContainer"]
+layout_mode = 2
+text = "Tab to Swap Player"
+
 [node name="MoveLeft" type="TouchScreenButton" parent="Control"]
 position = Vector2(7, 510)
 texture_normal = ExtResource("2_t3hmm")
