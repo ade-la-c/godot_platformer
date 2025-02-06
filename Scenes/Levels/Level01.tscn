@@ -24,16 +24,10 @@ players = [NodePath("Thomas")]
 
 [node name="Thomas" parent="Players" node_paths=PackedStringArray("exit") instance=ExtResource("2_17llu")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(250, 171)
+position = Vector2(28, 161)
 scale = Vector2(0.75, 1.25)
 jumpVelocity = -900.0
 exit = NodePath("../../Exits/ThomasExit")
-
-[node name="Camera" type="Camera2D" parent="Players/Thomas"]
-offset = Vector2(0, -200)
-enabled = false
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
 
 [node name="Exits" type="Node2D" parent="."]
 

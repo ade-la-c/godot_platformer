@@ -40,44 +40,26 @@ players = [NodePath("Thomas"), NodePath("Jhon"), NodePath("Claire")]
 
 [node name="Thomas" parent="Players" node_paths=PackedStringArray("exit") instance=ExtResource("3_42aiw")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(-937, -349)
+position = Vector2(-726, 406)
 scale = Vector2(0.75, 1.25)
 jumpVelocity = -900.0
 exit = NodePath("../../Exits/ThomasExit")
 
-[node name="Camera" type="Camera2D" parent="Players/Thomas"]
-offset = Vector2(0, -200)
-enabled = false
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
-
 [node name="Jhon" parent="Players" node_paths=PackedStringArray("exit") instance=ExtResource("3_42aiw")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(-783, -760)
+position = Vector2(-650, 400)
 scale = Vector2(0.4, 2)
 speed = 400.0
 jumpVelocity = -1100.0
 exit = NodePath("../../Exits/JhonExit")
 
-[node name="Camera" type="Camera2D" parent="Players/Jhon"]
-offset = Vector2(0, -200)
-enabled = false
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
-
 [node name="Claire" parent="Players" node_paths=PackedStringArray("exit") instance=ExtResource("3_42aiw")]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(-135, 87.0001)
+position = Vector2(188, 413)
 scale = Vector2(1.75, 1.75)
 speed = 200.0
 jumpVelocity = -750.0
 exit = NodePath("../../Exits/ClaireExit")
-
-[node name="Camera" type="Camera2D" parent="Players/Claire"]
-offset = Vector2(0, -200)
-enabled = false
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
 
 [node name="Exits" type="Node2D" parent="."]
 
