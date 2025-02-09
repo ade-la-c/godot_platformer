@@ -57,7 +57,7 @@ exit = NodePath("../../Exits/JhonExit")
 modulate = Color(0, 0, 1, 1)
 position = Vector2(188, 413)
 scale = Vector2(1.75, 1.75)
-speed = 200.0
+speed = 225.0
 jumpVelocity = -750.0
 exit = NodePath("../../Exits/ClaireExit")
 
