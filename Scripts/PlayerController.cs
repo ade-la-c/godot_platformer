@@ -9,6 +9,7 @@ public partial class PlayerController : CharacterBody2D {
 	[Export] public float speed = 300.0f;
 	[Export] public float jumpVelocity = -400.0f;
 	public bool isActive = false;
+	public Sprite2D activeMarker;
 	public bool stopMovement = false;
 	public Camera2D camera;
 	[Export] public Node2D exit;
@@ -23,13 +24,15 @@ public partial class PlayerController : CharacterBody2D {
 		initialPosition = Position;
 
 		camera = GetNode<Camera2D>("Camera");
+		activeMarker = GetNode<Sprite2D>("ActiveMarker");
 	}
 
 	public override void _Process(double delta) {
 
 		if (isActive) {
 			camera.MakeCurrent();
-		}
+			activeMarker.Visible = true;
+		} else { activeMarker.Visible = false; }
 
 		PlayerExits();
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuc42nimubawe"]
+[gd_scene load_steps=5 format=3 uid="uid://cuc42nimubawe"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_sbchh"]
 
@@ -6,6 +6,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ionrp"]
 size = Vector2(1, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4odkc"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_sbchh")
@@ -22,4 +24,10 @@ shape = SubResource("RectangleShape2D_ionrp")
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(0, -200)
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(0.6, 0.6)
+
+[node name="ActiveMarker" type="Sprite2D" parent="."]
+self_modulate = Color(0.647059, 0.647059, 0.647059, 1)
+position = Vector2(0, -50)
+scale = Vector2(90, 90)
+texture = SubResource("CanvasTexture_4odkc")

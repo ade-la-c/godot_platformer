@@ -13,14 +13,22 @@ public partial class ControlsOverlay : CanvasLayer {
 	public override void _Process(double delta) {
 
 		if (swapper == false) {
-			GetNode<HBoxContainer>("Control/PlayerSwapperContainer").Visible = false;
+			GetNode<HBoxContainer>("Control/VBoxContainer/PlayerSwapperContainer").Visible = false;
 		} else {
 
 			if (DisplayServer.IsTouchscreenAvailable() == false) {
-				GetNode<Button>("Control/PlayerSwapperContainer/SwapButton").Visible = false;
+				GetNode<Button>("Control/VBoxContainer/PlayerSwapperContainer/SwapButton").Visible = false;
 			} else {
-				GetNode<Label>("Control/PlayerSwapperContainer/Label").Visible = false;
+				GetNode<Label>("Control/VBoxContainer/PlayerSwapperContainer/SwapLabel").Visible = false;
 			}
+		}
+
+		if (DisplayServer.IsTouchscreenAvailable() == false) {
+			GetNode<HBoxContainer>("Control/VBoxContainer/MovementLabel").Visible = true;
+			GetNode<HBoxContainer>("Control/VBoxContainer/JumptLabel").Visible = true;
+		} else {
+			GetNode<Label>("Control/VBoxContainer/MovementLabel").Visible = false;
+			GetNode<Label>("Control/VBoxContainer/JumpLabel").Visible = false;
 		}
 	}
 

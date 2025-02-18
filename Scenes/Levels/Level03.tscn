@@ -30,10 +30,6 @@ scale = Vector2(25, 3)
 position = Vector2(-856, -685)
 scale = Vector2(8, 3)
 
-[node name="Platform5" parent="Platforms" instance=ExtResource("1_s7l4j")]
-position = Vector2(-1311, -113)
-scale = Vector2(3, 55)
-
 [node name="Players" type="Node2D" parent="." node_paths=PackedStringArray("players")]
 script = ExtResource("2_m4j14")
 players = [NodePath("Thomas"), NodePath("Jhon"), NodePath("Claire")]

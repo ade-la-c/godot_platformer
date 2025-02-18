@@ -1,4 +1,8 @@
-IDEAS :
+### IDEAS :
 
-- Checkpoints dans les lvls
-- Swap camera avec travelling
+- Checkpoints for long levels
+- Swap camera w travelling
+
+### FIXES :
+
+- make tutorial level
