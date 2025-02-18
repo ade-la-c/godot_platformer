@@ -53,5 +53,6 @@ visibility_mode = 1
 position = Vector2(988, 510)
 texture_normal = ExtResource("2_t3hmm")
 action = "jump"
+visibility_mode = 1
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayerSwapperContainer/SwapButton" to="." method="_on_swap_button_pressed"]

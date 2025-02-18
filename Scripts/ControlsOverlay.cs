@@ -7,7 +7,16 @@ public partial class ControlsOverlay : CanvasLayer {
 	public bool swapper;
 
 	// Called when the node enters the scene tree for the first time.
-	public override void _Ready() {}
+	public override void _Ready() {
+
+		if (DisplayServer.IsTouchscreenAvailable() == false) {
+			GetNode<Label>("Control/VBoxContainer/MovementLabel").Visible = true;
+			GetNode<Label>("Control/VBoxContainer/JumpLabel").Visible = true;
+		} else {
+			GetNode<Label>("Control/VBoxContainer/MovementLabel").Visible = false;
+			GetNode<Label>("Control/VBoxContainer/JumpLabel").Visible = false;
+		}
+	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
@@ -21,14 +30,6 @@ public partial class ControlsOverlay : CanvasLayer {
 			} else {
 				GetNode<Label>("Control/VBoxContainer/PlayerSwapperContainer/SwapLabel").Visible = false;
 			}
-		}
-
-		if (DisplayServer.IsTouchscreenAvailable() == false) {
-			GetNode<HBoxContainer>("Control/VBoxContainer/MovementLabel").Visible = true;
-			GetNode<HBoxContainer>("Control/VBoxContainer/JumptLabel").Visible = true;
-		} else {
-			GetNode<Label>("Control/VBoxContainer/MovementLabel").Visible = false;
-			GetNode<Label>("Control/VBoxContainer/JumpLabel").Visible = false;
 		}
 	}
 

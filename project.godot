@@ -54,10 +54,6 @@ tab={
 ]
 }
 
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
-
 [physics]
 
 2d/default_gravity=1980.0
